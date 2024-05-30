@@ -1,38 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Word count</title>
-  </head>
-  <body
-    class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-mono flx flex-col min-h-screen p-6"
-  >
-    <div class="container max-w-5xl mx-auto flex flex-col flex-grow mt-20 gap-4">
-      <div class="w-full">
-        <h1 class="font-black text-4xl font-mono mb-4 text-center">
-          Get your word count
-        </h1>
-        <textarea
-          name=""
-          id="wordPad"
-          cols="30"
-          rows="10"
-          class="shadow-xl w-full h-60 outline-none rounded-2xl p-4"
-        ></textarea>
-      </div>
-      <div>
-        <p id="wordCount">Total word length</p>
-        <p id="sentenceLength">Total length</p>
-      </div>
+const wordPad = document.getElementById('wordPad');
+      const wordCountDisplay = document.getElementById('wordCount');
+      const sentenceCountDisplay = document.getElementById('sentenceCount');
+      const characterLengthDisplay = document.getElementById('characterLength');
 
-    </div>
-    <footer class=" text-white p-4 text-center mb-0">
-        <div>
-          <h1>Made with ❤️ by Subham</h1>
-        </div>
-      </footer>
-    <script src="script.js"></script>
-  </body>
-</html>
+      function updateCounts() {
+        const text = wordPad.value;
+        const words = text.trim().split(/\s+/).filter(Boolean);
+        const sentences = text.split(/[.!?]\s*/).filter(Boolean);
+        const wordCount = words.length;
+        const sentenceCount = sentences.length;
+        const characterLength = text.length;
+
+        wordCountDisplay.textContent = `Total word count: ${wordCount}`;
+        sentenceCountDisplay.textContent = `Total sentence count: ${sentenceCount}`;
+        characterLengthDisplay.textContent = `Total character length: ${characterLength}`;
+      }
+
+      wordPad.addEventListener('input', updateCounts);

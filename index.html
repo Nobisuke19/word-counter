@@ -7,11 +7,9 @@
     <title>Word count</title>
   </head>
   <body
-    class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-mono flex flex-col min-h-screen p-6"
+    class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-mono flex flex-col min-h-screen p-6 text-white"
   >
-    <main
-      class="container max-w-5xl mx-auto flex flex-col flex-grow mt-20 gap-4"
-    >
+    <div class="container max-w-5xl mx-auto flex flex-col flex-grow mt-20 gap-4">
       <div class="w-full">
         <h1 class="font-black text-4xl font-mono mb-4 text-center">
           Get your word count
@@ -21,15 +19,16 @@
           id="wordPad"
           cols="30"
           rows="10"
-          class="shadow-xl w-full h-60 outline-none rounded-2xl p-4"
+          class="shadow-xl w-full h-60 outline-none rounded-2xl p-4 text-black"
         ></textarea>
       </div>
       <div>
-        <p id="wordCount">Total word length</p>
-        <p id="sentenceLength">Total length</p>
+        <p id="wordCount" class="text-lg font-bold">Total word count: 0</p>
+        <p id="sentenceCount" class="text-lg font-bold">Total sentence count: 0</p>
+        <p id="characterLength" class="text-lg font-bold">Total character length: 0</p>
       </div>
-    </main>
-    <footer class="text-white p-4 text-center mb-0">
+    </div>
+    <footer class="text-white p-4 text-center mt-4">
       <div>
         <h1>Made with ❤️ by Subham</h1>
       </div>
